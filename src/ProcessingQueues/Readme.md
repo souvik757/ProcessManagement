@@ -2,7 +2,7 @@
 ```
 - The Operating system manages various types of queues for each of the process states. 
 - The PCB related to the process is also stored in the queue of the same state. 
-- If the Process is moved from one state to another state then its PCB is also unlinked from the corresponding queue and 
+- If the PROCESS._Process_ is moved from one state to another state then its PCB is also unlinked from the corresponding queue and 
   added to the other state queue in which the transition is made.
 ```
 <img src="ProcessQueues.PNG"  width="360" height="360" />

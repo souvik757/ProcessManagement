@@ -6,7 +6,7 @@ import PROCESS.burst;
 import ProcessingQueues.PQNode;
 import ProcessingQueues.Queue;
 import ProcessingQueues.ReadyQueue;
-import SortAlgorithm.SortAlgorithm;
+import SortAlgorithm.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -320,8 +320,7 @@ public class INITIALIZE_SIMULATION {
 			}
 
 			// Sorting the jobs by arrival time
-			SortAlgorithm sort = new SortAlgorithm();
-			sort.mergeSort(sortJobs , 0, sortJobs.length - 1);
+			MergeSort.sort(sortJobs , 0, sortJobs.length - 1) ;
 
 			// filling the job queue
 			for (int i = 0; i < sortJobs.length; i++) {
@@ -351,21 +350,21 @@ public class INITIALIZE_SIMULATION {
 
 			for (int i = 0; i < numberOfAllProcesses; i++) { // how many processes to generate
 				memfree = 0;
-				arri = RandRange(rand, 1, 80);
+				arri = InRange(rand, 1, 80);
 				pw.print(arri);
-				int inner = RandRange(rand, 5, 9);
+				int inner = InRange(rand, 5, 9);
 				for (int j = 0; j < inner; j++) {
-					cpu = RandRange(rand, 10, 100);
-					memor = RandRange(rand, 5, 200);
-					io = RandRange(rand, 20, 60);
+					cpu = InRange(rand, 10, 100);
+					memor = InRange(rand, 5, 200);
+					io = InRange(rand, 20, 60);
 
 					pw.print(" " + cpu + " " + memor + " ");
 					pw.print(io);
 					if (j != 0)
 						memfree += memor;
 				}
-				cpu = RandRange(rand, 10, 100);
-				memor = RandRange(rand, 0, memfree); // make a free or no change instruction in the memory
+				cpu = InRange(rand, 10, 100);
+				memor = InRange(rand, 0, memfree); // make a free or no change instruction in the memory
 				memor = -1 * memor;
 				pw.print(" " + cpu + " " + memor + " ");
 				pw.println("-1");
@@ -409,7 +408,7 @@ public class INITIALIZE_SIMULATION {
 	}
 
 	// give a random number between the range of min and max.
-	private int RandRange(Random r, int min, int max) {
-		return r.nextInt((max - min) + 1) + min;
+	protected int InRange(Random random, int min, int max) {
+		return random.nextInt((max - min) + 1) + min;
 	}
 }

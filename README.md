@@ -1,4 +1,4 @@
-### A multi programming operating simulation program 
+### A multi programming operating system simulation program 
 #### made to -
 - #### ' track various characteristics of a process running in the cpu ' 
 ### Contents

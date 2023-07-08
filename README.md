@@ -25,7 +25,7 @@
  - Number of times it was waiting for memory 
  - Number of times its preempted             
  - Time it terminated or was killed          
- - Its final state: Killed ? Terminated     
+ - Its final state: Killed OR Terminated     
 ```
 
 ### process creation
